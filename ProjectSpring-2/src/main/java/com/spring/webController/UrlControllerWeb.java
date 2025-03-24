@@ -63,19 +63,7 @@ public class UrlControllerWeb {
 		return null;
 			
 		}
-	/*@GetMapping("/allshortUrls/{originalUrl}")
-	public ResponseEntity getAllShortUrlsFromOriginalUrls(@PathVariable String originalUrl) {
-		List <Urls> listUrls=repositoryUrls.findAll();
-	    for (int i=0;i< listUrls.size(); i++) {
-	    	Urls urls= listUrls.get(i);
-	    	if (urls.getShortUrl().equals(originalUrl)){
-	    		
-	    		return ResponseEntity.ok(urls.getUrls());
-	    	}
-	    	else return ResponseEntity.badRequest().build();
-	    }
-		return ResponseEntity.noContent().build();
-		*/
+	
 	}
 	
 	
