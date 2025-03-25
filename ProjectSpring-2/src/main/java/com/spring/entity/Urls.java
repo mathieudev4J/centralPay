@@ -28,10 +28,13 @@ public class Urls {
 	
 	@Column
 	private String shortUrl;
+
+	private static int clickUrl;
 	
 	public Urls(String origine, String shortUrl) {
 		this.urls=origine;
 		this.shortUrl=shortUrl;
+		
 	}
 	public boolean equals(Object o) {
 		if ((o instanceof Urls) && ((Urls)o).urls == urls){
@@ -47,5 +50,7 @@ public class Urls {
 	public Urls(String url) {
 		this.urls=url;
 	}
-	
+	public static int getClickUrl() {
+		return clickUrl++;
+	}
 }
