@@ -58,7 +58,7 @@ public class UrlControllerWeb {
 	
 	Optional<String> originalUrl=servicesUrls.getOriginalUrl(shortUrl);
 		if((originalUrl.isPresent())){
-	    
+	                int click=Urls.getClickUrl();
 			return  ResponseEntity.ok(originalUrl+"Nombres de visites "+String.valueOf(click));
 		}
 		if(shortUrl ==null) {
