@@ -29,7 +29,7 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-@RestController
+@Controller
 @RequestMapping("/api/url")
 public class UrlControllerWeb {
 
@@ -59,7 +59,7 @@ public class UrlControllerWeb {
 	Optional<String> originalUrl=servicesUrls.getOriginalUrl(shortUrl);
 		if((originalUrl.isPresent())){
 	    
-			return  ResponseEntity.ok(originalUrl);
+			return  ResponseEntity.ok(originalUrl+"Nombres de visites "+String.valueOf(click));
 		}
 		if(shortUrl ==null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -68,6 +68,15 @@ public class UrlControllerWeb {
 			
 	
 	}
+	@QueryMapping
+    public List<Urls> getAllUrls() {
+        return repositoryUrls.findAll();
+    }
+
+    @QueryMapping
+    public List<Urls> getUrlsByLongUrl(@Argument String urls) {
+        return repositoryUrls.findByUrls(urls);
+    }
 }
 	
 	
