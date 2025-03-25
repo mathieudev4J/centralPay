@@ -21,18 +21,6 @@ public class ServicesUrls {
 	}
     
 	
-	public String urlShort(String urlOrigine) {
-	
-		
-		String  urlShort= Base64.getUrlEncoder()
-				                .encodeToString(
-				                urlOrigine.getBytes(StandardCharsets.UTF_8))
-				                .substring(0,5);
-		
-		return urlShort;
-	
-}
-	
 	public Optional<String> getOriginalUrl(String shortUrl){
 		return repositoryUrls.findByShortUrl(shortUrl)
 				             .map(Urls::getUrls);
