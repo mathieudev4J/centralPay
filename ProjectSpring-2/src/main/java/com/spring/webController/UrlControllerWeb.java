@@ -53,15 +53,15 @@ public class UrlControllerWeb {
 		
 	}
 	
-	@GetMapping("/{shortUrl}")
-	public ResponseEntity<?> viewToOriginalUrl(@PathVariable String shortUrl) {
+	@GetMapping(value={"/{shortUrl}","/"})
+	public ResponseEntity<?> viewToOriginalUrl(@PathVariable(required=false) String shortUrl) {
 	
 	Optional<String> originalUrl=servicesUrls.getOriginalUrl(shortUrl);
 		if((originalUrl.isPresent())){
 	                int click=Urls.getClickUrl();
 			return  ResponseEntity.ok(originalUrl+"Nombres de visites "+String.valueOf(click));
 		}
-		if(shortUrl ==null) {
+		if(shortUrl == null) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 		return null;
