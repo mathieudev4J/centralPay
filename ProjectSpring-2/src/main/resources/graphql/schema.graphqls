@@ -1,0 +1,8 @@
+type Query{
+getAllUrls : [Urls]
+}
+type Urls {
+id : Long,
+urls : String,
+shortUrl : String
+}
